@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+     NSLog(@"%s,line = %d",__FUNCTION__,__LINE__);
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SwitchNameNotification:) name:@"SwitchNameNotification" object:nil];
 }
@@ -78,6 +78,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+     NSLog(@"%s,line = %d",__FUNCTION__,__LINE__);
     
     if ([[[NSUserDefaults standardUserDefaults ] objectForKey:@"nametext"] length]!=0) {
         self.nameLabel.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"nametext"];
@@ -92,6 +93,14 @@
     }
 
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+     NSLog(@"%s,line = %d",__FUNCTION__,__LINE__);
+}
+
+
+
 
 
 

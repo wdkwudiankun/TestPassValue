@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^Block)(NSString *str);
+
 @protocol secondDelegate <NSObject>
 
 -(void)showName:(NSString *)nameStr;
@@ -17,7 +18,7 @@ typedef void (^Block)(NSString *str);
 
 @interface SecondViewController : UIViewController
 
-@property (nonatomic,weak) id<secondDelegate> delegate;
+@property (nonatomic,weak) id<secondDelegate> delegate; //防止内存循环引用
 
 @property (nonatomic,copy) Block block;
 

@@ -92,7 +92,9 @@
 - (IBAction)DelegateStyle:(id)sender {
     
     if ([self notEmpty]) {
-        [self.delegate showName:self.nameTextField.text];
+        if ([self.delegate respondsToSelector:@selector(showName:)]) {
+            [self.delegate showName:self.nameTextField.text];
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
     }else{
     
